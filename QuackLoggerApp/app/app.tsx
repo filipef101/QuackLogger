@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { AppNavigator } from "./navigators"
 import { RootStoreProvider } from "./models"
 import "./i18n"
-import { tcpServer } from "./services/tcp-server"
+import { wsServer } from "./services/ws-tcp-server"
 import { createRootStore } from "./models/RootStore"
 import { PermissionsAndroid, Platform } from "react-native"
 
@@ -27,10 +27,10 @@ export const App = () => {
 
   useEffect(() => {
     requestPermissions().then(() => {
-      tcpServer.setStore(store)
-      tcpServer.start()
+      wsServer.setStore(store)
+      wsServer.start()
     })
-    return () => tcpServer.stop()
+    return () => wsServer.stop()
   }, [store])
 
   return (

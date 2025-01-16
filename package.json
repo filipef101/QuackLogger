@@ -77,7 +77,15 @@
     "copy-prettier-ignore": "zx scripts/copy-prettier-ignore.mjs",
     "remove-local-tags": "git tag -l | xargs git tag -d && git fetch -t",
     "build-and-test:local": "yarn build && yarn package:validate && yarn lint && yarn format:check && yarn test && yarn typecheck",
-    "package:validate": "zx scripts/package.validate.mjs"
+    "package:validate": "zx scripts/package.validate.mjs",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
-  "packageManager": "yarn@4.1.1"
+  "packageManager": "yarn@4.1.1",
+  "version": "1.0.0",
+  "dependencies": {
+    "expo": "~51.0.28",
+    "react": "18.2.0",
+    "react-native": "0.74.5"
+  }
 }
